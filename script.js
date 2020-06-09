@@ -17,9 +17,9 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword(){
 
   //variables for each array used
-  var lower = "abcdefghijklmnopqrstuvwxyz";
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var number = "0123456789";
+  var lowerAnswer = "abcdefghijklmnopqrstuvwxyz";
+  var upperAnswer = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numberAnswer = "0123456789";
   var symbolAnswer = "!@#$%^&()[|]~?`,.':/+-*";
   var passCreate = "";
   var passFinal = "";
@@ -37,50 +37,46 @@ function generatePassword(){
  
   //confirm lower case letters and validating user choice
   var lowerCase = confirm("Do you want lower case letters in your password?")
-  if(lowerCase === true){
-    passCreate += lower;
+  if(lowerCase){
+    passCreate += lowerAnswer;
     alert("You chose to include lower case letters in your password.")
-    console.log(lowerCase)
+    console.log(passCreate)
   }
   else{
     alert("You chose not to include lower case letters in your password.")
-    console.log(lowerCase)
   }
 
   //confirm upper case letters and validating user choice
   var upperCase = confirm("Do you want upper case letters in your password?")
-  if(upperCase === true){
-    passCreate += upper;
+  if(upperCase){
+    passCreate += upperAnswer;
     alert("You chose to include upper case letters in your password.")
-    console.log(upperCase)
+    console.log(passCreate)
   }
   else{
     alert("You chose not to include upper case letters in your password.")
-    console.log(upperCase)
   }
  
   //confirm numeric characters and validating user choice
   var numeric = confirm("Do you want numeric characters in your password?")
-  if(numeric === true){
-    passCreate += number;
+  if(numeric){
+    passCreate += numberAnswer;
     alert("You chose to include numeric characters in your password.")
-    console.log(numeric)
+    console.log(passCreate)
   }
   else{
     alert("You chose not to include numeric characters in your password.")
-    console.log(numeric)
   }
  
   //confirm special characters and validating user choice
   var symbols = confirm("Do you want special characters in your password?")
-  if(symbols === true){
+  if(symbols){
     passCreate += symbolAnswer;
     alert("You chose to include special characters in your password.")
-    console.log(symbols)
+    console.log(passCreate)
   }
   else{
     alert("You chose not to include special characters in your password.")
-    console.log(symbols)
   }
 
   //If no criteria is chosen by the user
@@ -88,15 +84,12 @@ function generatePassword(){
     alert("You did not choose any criteria, Please try again.")
   }
   else{
-    confirm("your special password will now be created.");
+    //for loop to create password and return to writePassword
+    for(var i = 1; i<=passLength; i++){
+      //random choices for password from arrays
+      passFinal = passCreate.charAt(Math.floor(Math.random() * passCreate.length));
+      console.log(passFinal)
+      return passFinal;
+    }
   }
- 
-  //for loop to create password and return to writePassword
-  for(var i = 1; i<passLength; i++){
-    //random choices for password from arrays
-    var passFinal = passCreate.charAt[Math.floor(Math.random() * passCreate.length)];
-    console.log(passFinal)
-  }
-  //return final results through function to show new password
-  return passFinal;
 }
