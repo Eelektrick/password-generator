@@ -28,7 +28,7 @@ function generatePassword(){
   var passLength = prompt("How long do you want your password to be? (can only use between 8 to 128 characters)");
   if(passLength > 7 && passLength < 129){
     alert("you chose a " + passLength + " character long password.")
-    console.log(passLength)
+    console.log(passLength);
   }
   else{
     alert("Sorry the length has to be within 8 to 128 characters")
@@ -40,7 +40,7 @@ function generatePassword(){
   if(lowerCase){
     passCreate += lowerAnswer;
     alert("You chose to include lower case letters in your password.")
-    console.log(passCreate)
+    console.log(passCreate);
   }
   else{
     alert("You chose not to include lower case letters in your password.")
@@ -51,7 +51,7 @@ function generatePassword(){
   if(upperCase){
     passCreate += upperAnswer;
     alert("You chose to include upper case letters in your password.")
-    console.log(passCreate)
+    console.log(passCreate);
   }
   else{
     alert("You chose not to include upper case letters in your password.")
@@ -62,7 +62,7 @@ function generatePassword(){
   if(numeric){
     passCreate += numberAnswer;
     alert("You chose to include numeric characters in your password.")
-    console.log(passCreate)
+    console.log(passCreate);
   }
   else{
     alert("You chose not to include numeric characters in your password.")
@@ -73,23 +73,23 @@ function generatePassword(){
   if(symbols){
     passCreate += symbolAnswer;
     alert("You chose to include special characters in your password.")
-    console.log(passCreate)
+    console.log(passCreate);
   }
   else{
     alert("You chose not to include special characters in your password.")
   }
 
-  //If no criteria is chosen by the user
+  //If no criteria is chosen by the user, restart all over
   if(!upperCase && !lowerCase && !numeric && !symbols){
     alert("You did not choose any criteria, Please try again.")
   }
   else{
     //for loop to create password and return to writePassword
     for(var i = 1; i<=passLength; i++){
-      //random choices for password from arrays
-      passFinal = passCreate.charAt(Math.floor(Math.random() * passCreate.length));
-      console.log(passFinal)
-      return passFinal;
+      //random choices for password from user choices
+      passFinal += passCreate.charAt(Math.floor(Math.random() * passCreate.length));
+      console.log(passFinal);
     }
+    return passFinal;
   }
 }
