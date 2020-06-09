@@ -89,9 +89,11 @@ function generatePassword(){
   }
  
   //for loop to create password and return to writePassword
-  for(var i = 0; i<passLength; i++){
+  for(var i = 1; i<passLength; i++){
     //random choices for password from arrays
-    var passCreated = passArray[Math.floor(Math.random() * passArray.length)]
+    var passFinal = passCreate.charAt[Math.floor(Math.random() * passCreate.length)];
+    console.log(passFinal)
   }
-  return passCreated;
+  //return final results through function to show new password
+  return passFinal;
 }
